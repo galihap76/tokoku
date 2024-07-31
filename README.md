@@ -6,6 +6,9 @@ Tokoku memiliki sistem multi user yang arti nya ada dua role yaitu admin dan cus
 
 Alur proses bisnis aplikasi web ini sama dengan layaknya toko pada umum nya. Jadi ketika customer membeli suatu produk, lalu checkout, pilih pembayaran Midtrans, dan jika sukses maka customer bisa mengunduh produk yang di simpan dari sistem aplikasi. Customer akan menerima notifikasi email, misal invoice milik customer adalah **80xxxx** telah membeli suatu produk.
 
+## Fitur 📱
+Untuk fitur, mohon Anda bisa melihat pada <a href="https://github.com/galihap76/tokoku/releases/">release application</a>.
+
 ## Install ⚙️ 
 Jika Anda seorang developer atau mahasiswa ingin menggunakan dan mengubah source code yang ada pada aplikasi web ini, maka perintah nya sebagai berikut : 
 
