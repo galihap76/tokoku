@@ -1,6 +1,6 @@
 ## Tokoku 🛒
 
-Tokoku merupakan platfrom marketplace produk digital yang menjual produk digital secara online dengan payment gateway Midtrans. Saya membangun ini sesuai dengan kata **tokoku** yang artinya platfrom ini di bangun untuk menjual produk milik saya sendiri. Produk tersebut bisa saja produk source code program aplikasi, file PDF berbayar, video berbayar, yang bersifat produk digital.
+Tokoku merupakan platfrom marketplace produk digital yang menjual produk digital secara online dengan payment gateway Midtrans. Saya membangun ini sesuai dengan kata **tokoku** yang artinya platfrom ini di bangun untuk menjual produk milik saya sendiri. Produk tersebut bisa saja produk source code program aplikasi, file PDF berbayar, video berbayar.
 
 Tokoku memiliki sistem multi user yang arti nya ada dua role yaitu admin dan customer. Admin adalah role milik saya dan customer sebagai pembeli. Tokoku di bangun dengan framework Laravel 10 dan MySQL sebagai backend nya. Untuk front end menggunakan bootstrap dan JavaScript. 
 
