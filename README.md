@@ -105,7 +105,7 @@ MAIL_FROM_NAME="${APP_NAME}"
 
 ## Penutup
 
-Aplikasi web ini akan saya perbarui jika saya memang ada waktu. Jika ada pertanyaan bisa tekan tombol issue pada repo ini. Sekian terima kasih. 
+Aplikasi web ini akan saya perbarui jika saya memang ada waktu. Jika ada pertanyaan bisa tekan tombol <a href="https://github.com/galihap76/tokoku/issues">issues</a> pada repo ini. Sekian terima kasih. 
 
 
 
