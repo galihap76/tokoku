@@ -20,7 +20,7 @@ class CheckIdCustomer
         $profileId = (int) $request->route('id');
 
         if ($user->id !== $profileId || Auth::user()->role_id == 1) {
-            abort(403, 'Unauthorized action.');
+            abort(403, 'Forbidden access.');
         }
         return $next($request);
     }

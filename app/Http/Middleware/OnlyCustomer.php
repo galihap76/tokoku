@@ -17,7 +17,7 @@ class OnlyCustomer
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::user()->role_id != 2) {
-            abort(403, 'Unauthorized action.');
+            abort(403, 'Forbidden access.');
         }
 
         return $next($request);
