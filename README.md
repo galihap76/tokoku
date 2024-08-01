@@ -1,66 +1,121 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Tokoku 🛒
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Tokoku merupakan platfrom marketplace produk digital yang menjual produk digital secara online dengan payment gateway Midtrans. Saya membangun ini sesuai dengan kata **tokoku** yang artinya platfrom ini di bangun untuk menjual produk milik saya sendiri. Untuk saat ini produk digital tersebut hanya bisa menjual source code program aplikasi.
 
-## About Laravel
+Tokoku memiliki sistem multi user yang arti nya ada dua role yaitu admin dan customer. Admin adalah role milik saya dan customer sebagai pembeli. Tokoku di bangun dengan framework Laravel 10 dan MySQL sebagai backend nya. Untuk front end menggunakan bootstrap dan JavaScript. 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Alur proses bisnis aplikasi web ini sama dengan layaknya toko pada umum nya. Jadi ketika customer membeli suatu produk, lalu checkout, pilih pembayaran Midtrans, dan jika sukses maka customer bisa mengunduh produk yang di simpan dari sistem aplikasi. Customer akan menerima notifikasi email, misal invoice milik customer adalah **80xxxx** telah membeli suatu produk.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Fitur 📱
+Untuk fitur, mohon Anda bisa melihat pada <a href="https://github.com/galihap76/tokoku/releases/">rilis aplikasi</a>.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Install ⚙️ 
+Jika Anda seorang developer atau mahasiswa ingin menggunakan dan mengubah source code yang ada pada aplikasi web ini, maka perintah nya sebagai berikut : 
 
-## Learning Laravel
+1. Lakukan git clone :
+```
+git clone https://github.com/galihap76/tokoku.git
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. Masuk ke direktori tokoku :
+```
+cd tokoku
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3. Install package bawahan Laravel :
+ 
+```
+composer install
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. Generate key :
+```
+php artisan key:generate
+```
 
-## Laravel Sponsors
+5. Copy .env.example ke .env :
+```
+copy .env.example .env
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+6. Import database yang berada pada folder **public/assets/** dan cari nama file **db_tokoku.sql**.
 
-### Premium Partners
+7. Buka **.env** lalu ubah konfigurasi database sesuai yang ingin dipakai :
+```
+DB_PORT=3306
+DB_DATABASE=
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+8. Masuk dan daftar <a href="https://dashboard.midtrans.com/login">Midtrans</a> untuk mendapatkan MERCHANT, CLIENT, dan SECRET key. Lalu copas ini ke **.env**  :
+```
+MIDTRANS_MERCHANT_ID = <MASUKKAN MERCHANT ID MILIK ANDA>
+MIDTRANS_CLIENT_KEY = <MASUKKAN CLIENT KEY MILIK ANDA>
+MIDTRANS_SERVER_KEY = <MASUKKAN SERVER KEY MILIK ANDA>
+```
 
-## Contributing
+9. Tokoku memiliki sistem Single Sign On (SSO) Google, jadi Anda perlu masuk dan daftar pada <a href="https://console.cloud.google.com/apis/dashboard">console.cloud.google</a> untuk mendapatkan CLIENT dan SECRET key.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+10. Copas ini ke **.env** untuk bisa menggunakan sistem SSO Google :
+```
+GOOGLE_CLIENT_ID= <MASUKKAN CLIENT ID ANDA>
+GOOGLE_CLIENT_SECRET= <MASUKKAN CLIENT SECRET ANDA>
+GOOGLE_REDIRECT_URI= <MASUKKAN REDIRECT URI APLIKASI WEB ANDA>
+```
 
-## Code of Conduct
+13. Untuk mengirim dan menerima email menggunakan protokol SMTP, daftar pada situs <a href="https://mailtrap.io/">mailtrap</a> untuk bahan percobaan.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+14. Terakhir, sesuaikan konfigurasi MAIL Anda sendiri di **.env** :
+```
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME= <MASUKKAN USERNAME ANDA>
+MAIL_PASSWORD= <MASUKKAN PASSWORD ANDA>
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS="hello@example.com"
+MAIL_FROM_NAME="${APP_NAME}"
+```
 
-## Security Vulnerabilities
+15. Selesai.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Screenshots 📸
+| ![image](https://github.com/user-attachments/assets/9237bf65-213a-45d7-bc7a-6226113482dd) | ![image](https://github.com/user-attachments/assets/82bb6892-dc60-4d37-b636-1bf10c7e7960)
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Login                                        | Pendaftaran                      |
+| ![image](https://github.com/user-attachments/assets/2d755629-0689-4ca9-afaf-6b4d4ba826c9) | ![image](https://github.com/user-attachments/assets/80094853-b1e3-4ca1-8172-afe8d34e14bc)
+| Lupa Password                                         | Reset Password                           |
+| ![image](https://github.com/user-attachments/assets/e7cfbce2-b561-42d9-8d73-eba5b1faad7e) | ![image](https://github.com/user-attachments/assets/f1da0bfc-64a0-4de1-8f46-39e631870ce6)
+| Dashboard (Admin)                                         | Menu Produk (Admin)                   |
+| ![image](https://github.com/user-attachments/assets/7c3a617d-e02e-4ebb-874c-368b36a4bdd1) | ![image](https://github.com/user-attachments/assets/d6e79b1b-ec98-4aad-84a3-c591badff6e8)
+| Tambah Produk (Admin)                                         | Update Produk (Admin)                 |
+| ![image](https://github.com/user-attachments/assets/f2647401-69a2-4835-b534-f82269b16bc4) | ![image](https://github.com/user-attachments/assets/4094681c-ff16-440b-bd52-dfa16066d9b3)
+| Screenshots Produk (Admin & Customer)                                         | Produk Terjual (Admin)                 |
+| ![image](https://github.com/user-attachments/assets/1792c82a-0ba9-4a94-9513-0f6d15abf6e7) | ![image](https://github.com/user-attachments/assets/34713afa-00fa-4110-b349-11cc029fcfdf)
+| Ganti Password (Admin & Customer)                                         | Extract Screenshots (Admin)                 |
+| ![image](https://github.com/user-attachments/assets/f5db2e26-62d3-4dc9-9f25-c4f7b6641be5) | ![image](https://github.com/user-attachments/assets/1cbd1033-f3b6-4698-8287-20c871753669)
+| Profile Customer (Customer)                                         | Menu Produk (Customer)                 |
+| ![image](https://github.com/user-attachments/assets/389aa8d6-8301-4b29-baa9-dbf205a96ab6) | ![Screenshot (28)](https://github.com/user-attachments/assets/8137b37d-24d7-48fe-a1bf-530ddfba0735)
+| Beli Produk / Checkout (Customer)                                         | Metode Pembayaran (Customer)                 |
+| ![image](https://github.com/user-attachments/assets/43dd1bd3-a31c-4ab5-b954-3772ccfc2268) | ![image](https://github.com/user-attachments/assets/d6bbdfff-aeda-4b5b-b0a3-7bd39d1632dd)
+| Bukti Pembayaran (Customer)                                         | Unduh Bukti Pembayaran (Customer)                 |
+| ![Screenshot (29)](https://github.com/user-attachments/assets/992b7ac9-c447-4e0c-b64f-7d4c09c734a0) | ![Screenshot (30)](https://github.com/user-attachments/assets/d04b8e8b-9594-482f-a392-39910071a933)
+| Notifikasi Reset Password (Admin & Customer)                                         | Notifikasi Email Beli Produk (Customer)                 |
 
-## License
+## Penutup
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Aplikasi web ini akan saya perbarui jika saya memang ada waktu. Jika ada pertanyaan bisa tekan tombol <a href="https://github.com/galihap76/tokoku/issues">issues</a> pada repo ini. Sekian terima kasih. 
+
+
+
+
+
+
+
+
+
+
+
+
+
