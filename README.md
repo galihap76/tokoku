@@ -64,9 +64,9 @@ GOOGLE_CLIENT_SECRET= <MASUKKAN CLIENT SECRET ANDA>
 GOOGLE_REDIRECT_URI= <MASUKKAN REDIRECT URI APLIKASI WEB ANDA>
 ```
 
-13. Untuk mengirim dan menerima email menggunakan protokol SMTP, daftar pada situs <a href="https://mailtrap.io/">mailtrap</a> untuk bahan percobaan.
+11. Untuk mengirim dan menerima email menggunakan protokol SMTP, daftar pada situs <a href="https://mailtrap.io/">mailtrap</a> untuk bahan percobaan.
 
-14. Terakhir, sesuaikan konfigurasi MAIL Anda sendiri di **.env** :
+12. Terakhir, sesuaikan konfigurasi MAIL Anda sendiri di **.env** :
 ```
 MAIL_MAILER=smtp
 MAIL_HOST=sandbox.smtp.mailtrap.io
@@ -78,7 +78,7 @@ MAIL_FROM_ADDRESS="hello@example.com"
 MAIL_FROM_NAME="${APP_NAME}"
 ```
 
-15. Selesai.
+13. Selesai.
 
 ## Screenshots 📸
 | ![image](https://github.com/user-attachments/assets/9237bf65-213a-45d7-bc7a-6226113482dd) | ![image](https://github.com/user-attachments/assets/82bb6892-dc60-4d37-b636-1bf10c7e7960)
