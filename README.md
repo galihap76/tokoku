@@ -28,14 +28,14 @@ cd tokoku
 composer install
 ```
 
-4. Generate key :
-```
-php artisan key:generate
-```
-
-5. Copy .env.example ke .env :
+4. Copy .env.example ke .env :
 ```
 copy .env.example .env
+```
+
+5. Generate key :
+```
+php artisan key:generate
 ```
 
 6. Import database yang berada pada folder **public/assets/** dan cari nama file **db_tokoku.sql**.
