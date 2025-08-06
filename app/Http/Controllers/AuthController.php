@@ -9,10 +9,47 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 
 class AuthController extends Controller
 {
+
+    protected function setIconProfile()
+    {
+        $sourcePath = public_path('assets/img/default');
+        $destinationPath = 'default';
+
+        // Ambil semua file dari public/assets/img/default/
+        $files = File::files($sourcePath);
+
+        // Copy semua file ke storage/app/public/default/
+        foreach ($files as $file) {
+            $filename = $file->getFilename();
+
+            $targetPath = $destinationPath . '/' . $filename;
+
+            // Dan simpan ke file pada storage/app/public/default/ jika file belum ada 
+            if (!Storage::disk('public')->exists($targetPath)) {
+                Storage::disk('public')->putFileAs($destinationPath, $file, $filename);
+            }
+        }
+
+        // Ambil semua file dari storage/app/public/default/
+        $storageFiles = Storage::disk('public')->files($destinationPath);
+
+        // Filter hanya gambar
+        $icons = array_filter($storageFiles, function ($file) {
+            return in_array(strtolower(pathinfo($file, PATHINFO_EXTENSION)), ['jpg', 'jpeg', 'png']);
+        });
+
+        // Pilih satu acak
+        $randomIcon = $icons[array_rand($icons)];
+
+        return $randomIcon;
+    }
+
     public function index()
     {
         return view('auth.login');
@@ -87,7 +124,7 @@ class AuthController extends Controller
                 'name' => trim(ucwords($request->input('name'))),
                 'email' => trim($request->input('email')),
                 'password' => Hash::make($request->input('password')),
-                'profile_picture' => 'default/default-profile-picture.png',
+                'profile_picture' => $this->setIconProfile(),
                 'role' => 'user'
             ]);
 
