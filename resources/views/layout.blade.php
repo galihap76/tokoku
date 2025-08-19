@@ -92,6 +92,17 @@
                             Dashboard
                         </a>
 
+                        <div class="sidenav-menu-heading">Manajemen Produk</div>
+
+                        @if(Auth::user()->role == 'admin')
+                        <!-- Sidenav Accordion (Management Laporan)-->
+                        <a class="nav-link collapsed {{ Request::segment(1) == 'categories-menu' ? 'active' : '' }}"
+                            href="{{ url('/categories-menu') }}">
+                            <div class="nav-link-icon"><i class="bi bi-tags-fill"></i></div>
+                            Menu Kategori
+                        </a>
+                        @endif
+
                         {{--
                         <!-- Management Laporan -->
                         <div class="sidenav-menu-heading">Manajemen Laporan</div>
@@ -215,6 +226,39 @@
     @if(Request::path() == 'dashboard' && Auth::user()->role == 'admin')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" crossorigin="anonymous"></script>
     <script src="{{ asset('assets/demo/chart-area-demo.js') }}"></script>
+    @endif
+
+    @if(Request::path() == 'categories-menu')
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+        crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/js/datatables/datatables-simple-demo.js') }}"></script>
+
+    <script>
+        function replaceStr(str) {
+            return str.replace(/-/g, ' ') // Ganti '-' dengan spasi
+        }
+
+        function btnDeleteCategories(name, id){
+            let form_id = `.form-id-${id}`;
+            let selector_class_form_id = document.querySelector(form_id);
+            let nameReplace = replaceStr(name);
+
+            Swal.fire({
+                title: "Apakah Anda yakin?",
+                text: `Hapus kategori ${nameReplace}.`,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya hapus!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    selector_class_form_id.submit();
+                }
+            });
+        }
+
+    </script>
     @endif
 
 </body>

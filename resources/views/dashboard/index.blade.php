@@ -32,7 +32,7 @@
                         <div class="page-header-icon"><i class="bi-speedometer2" style="font-size: 25px;"></i></div>
                         Dashboard
                     </h1>
-                    <div class="page-header-subtitle">Tokoku - Platfrom Jual Beli Source Code.</div>
+                    <div class="page-header-subtitle">Tokoku - Platfrom Jual Beli Source Code</div>
                 </div>
             </div>
         </div>
