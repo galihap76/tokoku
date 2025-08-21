@@ -20,7 +20,7 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-auto mt-4">
                     <h1 class="page-header-title">
-                        <div class="page-header-icon"><i class="bi-speedometer2" style="font-size: 25px;"></i></div>
+                        <div class="page-header-icon"><i class="bi bi-tags-fill" style="font-size: 25px;"></i></div>
                         Kategori Produk
                     </h1>
                     <div class="page-header-subtitle">Tokoku - Daftar Kategori Produk Source Code</div>
@@ -37,7 +37,7 @@
         <div class="col mb-4">
             <!-- Example DataTable for Dashboard Demo-->
             <div class="card mb-4">
-                <div class="card-header">Daftar Kategori Produk Source Code</div>
+                <div class="card-header">Kategori Produk</div>
 
                 <div class="card-body">
                     <a href="{{ route('categories-menu.create') }}" class="btn btn-success mb-4"><i
@@ -87,7 +87,7 @@
                                     <div class="text-center">
                                         <a href="{{ route('categories-menu.edit', $item->id) }}"
                                             class="btn btn-warning mb-3"><i class="bi bi-pencil-fill me-1"></i>
-                                            Edit Kategori</a>
+                                            Edit</a>
 
                                         <form action="{{ route('categories-menu.destroy', $item->id) }}" method="post"
                                             class="form-id-{{ $item->id }}">

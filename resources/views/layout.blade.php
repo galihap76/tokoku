@@ -101,6 +101,13 @@
                             <div class="nav-link-icon"><i class="bi bi-tags-fill"></i></div>
                             Menu Kategori
                         </a>
+
+                        <!-- Sidenav Accordion (Management Laporan)-->
+                        <a class="nav-link collapsed {{ Request::segment(1) == 'categories-submenu' ? 'active' : '' }}"
+                            href="{{ url('/categories-submenu') }}">
+                            <div class="nav-link-icon"><i class="bi bi-tags-fill"></i></div>
+                            Menu Sub Kategori
+                        </a>
                         @endif
 
                         {{--
@@ -228,7 +235,7 @@
     <script src="{{ asset('assets/demo/chart-area-demo.js') }}"></script>
     @endif
 
-    @if(Request::path() == 'categories-menu')
+    @if(Request::path() == 'categories-menu' || Request::path() == 'categories-submenu')
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
     <script src="{{ asset('assets/js/datatables/datatables-simple-demo.js') }}"></script>
@@ -239,6 +246,26 @@
         }
 
         function btnDeleteCategories(name, id){
+            let form_id = `.form-id-${id}`;
+            let selector_class_form_id = document.querySelector(form_id);
+            let nameReplace = replaceStr(name);
+
+            Swal.fire({
+                title: "Apakah Anda yakin?",
+                text: `Hapus kategori ${nameReplace}.`,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya hapus!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    selector_class_form_id.submit();
+                }
+            });
+        }
+
+        function btnDeleteSubMenuCategories(name, id){
             let form_id = `.form-id-${id}`;
             let selector_class_form_id = document.querySelector(form_id);
             let nameReplace = replaceStr(name);

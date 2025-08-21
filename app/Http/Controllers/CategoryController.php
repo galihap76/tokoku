@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 
-class CategoriesController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -160,7 +160,7 @@ class CategoriesController extends Controller
         }
 
         $replaceStrName = ucwords(str_replace('-', ' ', $category->name));
-        $msg = "Berhasil melakukan hapus kategori " . "<strong>" . $replaceStrName . "</strong>" . ".";
+        $msg = "Berhasil melakukan hapus kategori " . $replaceStrName . ".";
 
         // Hapus record dari database
         $category->delete();

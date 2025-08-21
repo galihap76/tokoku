@@ -10,7 +10,8 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-auto mt-4">
                     <h1 class="page-header-title">
-                        <div class="page-header-icon"><i class="bi-speedometer2" style="font-size: 25px;"></i></div>
+                        <div class="page-header-icon"><i class="bi bi-plus-circle-fill" style="font-size: 25px;"></i>
+                        </div>
                         Tambah Kategori
                     </h1>
                     <div class="page-header-subtitle">Tokoku - Tambah Kategori Produk</div>

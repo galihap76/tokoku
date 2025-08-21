@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CategorySubMenuController;
 use App\Http\Controllers\EmailVerificationController;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
@@ -36,7 +37,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index']);
 
-    Route::resource('categories-menu', CategoriesController::class);
+    Route::resource('categories-menu', CategoryController::class);
+    Route::resource('categories-submenu', CategorySubMenuController::class);
 });
 
 Route::middleware('guest')->group(function () {
