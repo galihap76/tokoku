@@ -105,7 +105,10 @@ MAIL_FROM_NAME="${APP_NAME}"
 
 ## Penutup
 
-Aplikasi web ini akan saya perbarui jika saya memang ada waktu. Jika ada pertanyaan bisa tekan tombol <a href="https://github.com/galihap76/tokoku/issues">issues</a> pada repo ini. Sekian terima kasih. 
+Aplikasi web ini masih belum sepenuhnya mengikuti best practices seperti penggunaan Semantic Versioning (SemVer), penerapan keamanan (security), penulisan clean code, dan lainnya.
+Pembaruan akan dilakukan apabila tersedia waktu, dengan pengembangan utama berada pada branch <a href="https://github.com/galihap76/tokoku/tree/dev">dev</a>.
+Jika memiliki pertanyaan atau masukan, silakan ajukan melalui menu <a href="https://github.com/galihap76/tokoku/issues">Issues</a> pada repository ini.
+Terima kasih.
 
 
 
